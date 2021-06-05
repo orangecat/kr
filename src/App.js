@@ -18,27 +18,33 @@ const useStateWithLocalStorage = localStorageKey => {
 const coupon_options = [
   {
     "label": "請選擇",
-    "value": ""
+    "value": "",
+    "expire": new Date()
   },
   {
     "label": "～6/7 酷幣1,000",
-    "value": "REWARD001"
+    "value": "REWARD001",
+    "expire": new Date("2021-06-07")
   },
   {
     "label": "～7/18 平底鍋背飾、酷幣500、金幣10,000",
-    "value": "KARTANDPUBG"
+    "value": "KARTANDPUBG",
+    "expire": new Date("2021-07-18")
   },
   {
     "label": "～7/31 限時車手、裝、車",
-    "value": "USANDRIDERSTOGETHER"
+    "value": "USANDRIDERSTOGETHER",
+    "expire": new Date("2021-07-31")
   },
   {
     "label": "～8/31 能量水晶2,000、酷幣500、金幣1,000",
-    "value": "SURVEYREWARD"
+    "value": "SURVEYREWARD",
+    "expire": new Date("2021-08-31")
   },
   {
     "label": "～8/31 頭飾、熊美氣球30、酷幣1,000",
-    "value": "KRRPLINEFRIENDS"
+    "value": "KRRPLINEFRIENDS",
+    "expire": new Date("2021-08-31")
   }
 ]
 
@@ -123,7 +129,19 @@ function App() {
         />
         <br />
         <select value={couponNum} onChange={e => setCouponNum(e.target.value)}>
-          {coupon_options.map((o, i) => (<option key={i} value={o.value}>{o.label}</option>))}
+          {coupon_options.map((o, i) =>{ 
+	    Date.prototype.yyyymmdd = function() {
+	      let mm = this.getMonth() + 1; // getMonth() is zero-based
+	      let dd = this.getDate();
+
+	      return [this.getFullYear(),
+		  (mm>9 ? '' : '0') + mm,
+		  (dd>9 ? '' : '0') + dd
+	 	 ].join('');
+	    };
+	    if (new Date(o.expire).yyyymmdd() < new Date().yyyymmdd()) return;
+	    return (<option key={i} value={o.value}>{o.label}</option>)
+	  })}
         </select>
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
