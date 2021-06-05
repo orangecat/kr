@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
+let pkg = require('../package.json');
+
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = useState(
     localStorage.getItem(localStorageKey) || ''
@@ -125,6 +127,8 @@ function App() {
         </select>
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
+	<br />
+	<p>Version: {pkg.version}</p>
       </header>
     </div>
   );
