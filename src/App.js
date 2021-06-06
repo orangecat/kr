@@ -142,7 +142,7 @@ function App() {
 	 	 ].join('');
 	    };
 	    if (new Date(o.expire).yyyymmdd() < new Date().yyyymmdd()) return;
-	    return (<option key={i} value={o.value}>{o.label}</option>)
+	    return (<option key={i} value={o.value}>{o.label} - {o.value}</option>)
 	  })}
         </select>
         <br />
