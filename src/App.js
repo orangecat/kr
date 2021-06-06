@@ -131,6 +131,7 @@ function App() {
         />
         <br />
         <select value={couponNum} onChange={e => setCouponNum(e.target.value)}>
+	  <optgroup>
           {coupon_options.map((o, i) =>{ 
 	    Date.prototype.yyyymmdd = function() {
 	      let mm = this.getMonth() + 1; // getMonth() is zero-based
@@ -142,8 +143,9 @@ function App() {
 	 	 ].join('');
 	    };
 	    if (new Date(o.expire).yyyymmdd() < new Date().yyyymmdd()) return;
-	    return (<optgroup key={i} label={o.value}><option value={o.value}>{o.label}</option></optgroup>)
+	    return (<option value={o.value}>{o.label} {o.value && `- ${o.value}`}</option>)
 	  })}
+	  </optgroup>
         </select>
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
