@@ -97,8 +97,10 @@ function App() {
               .then(res => res.json())
               .then(d => {
                 if (d.result) {
-                  alert(`禮券使用完畢\n道具將發送至信箱，\n發送至信箱需要些許時間。\n系統回覆：${d.message}`)
-                } else {
+                  alert(`Hi ${name}\n禮券使用完畢\n道具將發送至信箱，\n發送至信箱需要些許時間。\n系統回覆：${d.message}`)
+                } else if (d.code === 88888) {
+	          alert(`發生了意外的錯誤。\n請重新整理或重新連線後，再次按下按鍵。\n系統回覆：${d.message}`)
+	 	} else {
                   alert(`已使用過的優惠券。\n請確認號碼後重新輸入。\n系統回覆：${d.message}`)
                 }
               })
