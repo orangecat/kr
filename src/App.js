@@ -150,9 +150,8 @@ function App() {
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
 	<br />
-	<span>最後更新時間:2021-06-06 18:56</span>
-	<span onClick={()=>window.open("https://github.com/orangecat/kr")}>點我看程式碼</span>
-	  <div onClick={()=>window.location.reload()}>點我重新整理</div><br/><br/>
+	<span>最後更新時間:2021-06-06 19:01</span>
+	  <br/><div onClick={()=>window.location.reload()}>點我重新整理</div><br/><br/>
       </header>
     </div>
   );
