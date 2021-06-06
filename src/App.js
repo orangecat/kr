@@ -142,7 +142,7 @@ function App() {
 	 	 ].join('');
 	    };
 	    if (new Date(o.expire).yyyymmdd() < new Date().yyyymmdd()) return;
-	    return (<option key={i} value={o.value}>{o.label} - {o.value}</option>)
+	    return (<optgroup key={i} label={o.value}><option value={o.value}>{o.label}</option></optgroup>)
 	  })}
         </select>
         <br />
