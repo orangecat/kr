@@ -99,8 +99,8 @@ function App() {
                 if (d.result) {
                   alert(`Hi ${name}\n禮券使用完畢\n道具將發送至信箱，\n發送至信箱需要些許時間。\n系統回覆：${d.message}`)
                 } else if (d.code === 88888) {
-	          alert(`發生了意外的錯誤。\n請重新整理或重新連線後，再次按下按鍵。\n系統回覆：${d.message}`)
-	 	} else {
+                  alert(`發生了意外的錯誤。\n請重新整理或重新連線後，再次按下按鍵。\n系統回覆：${d.message}`)
+	 	            } else {
                   alert(`已使用過的優惠券。\n請確認號碼後重新輸入。\n系統回覆：${d.message}`)
                 }
               })
@@ -131,27 +131,28 @@ function App() {
         />
         <br />
         <select value={couponNum} onChange={e => setCouponNum(e.target.value)}>
-	  <optgroup>
+          <optgroup>
           {coupon_options.map((o, i) =>{ 
-	    Date.prototype.yyyymmdd = function() {
-	      let mm = this.getMonth() + 1; // getMonth() is zero-based
-	      let dd = this.getDate();
+            Date.prototype.yyyymmdd = function() {
+              let mm = this.getMonth() + 1; // getMonth() is zero-based
+              let dd = this.getDate();
 
-	      return [this.getFullYear(),
-		  (mm>9 ? '' : '0') + mm,
-		  (dd>9 ? '' : '0') + dd
-	 	 ].join('');
-	    };
-	    if (new Date(o.expire).yyyymmdd() < new Date().yyyymmdd()) return;
-	    return (<option value={o.value}>{o.label} {o.value && `- ${o.value}`}</option>)
-	  })}
-	  </optgroup>
+              return [this.getFullYear(),
+                (mm>9 ? '' : '0') + mm,
+                (dd>9 ? '' : '0') + dd
+              ].join('');
+            };
+            if (new Date(o.expire).yyyymmdd() < new Date().yyyymmdd()) return;
+            return (<option value={o.value}>{o.label} {o.value && `- ${o.value}`}</option>)
+          })}
+          </optgroup>
         </select>
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
-	<br />
-	<span>最後更新時間:2021-06-06 19:01</span>
-	  <br/><div onClick={()=>window.location.reload()}>點我重新整理</div><br/><br/>
+        <br />
+        <span>最後更新時間:2021-06-06 19:01</span>
+        <br/>
+        <div onClick={()=>window.location.reload()}>點我重新整理</div><br/><br/>
       </header>
     </div>
   );
