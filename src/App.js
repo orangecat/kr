@@ -27,6 +27,11 @@ const coupon_options = [
     "expire": new Date("2021-06-07")
   },
   {
+    "label": "～7/10 潮流滑板",
+    "value": "2021SKATEBOARD",
+    "expire": new Date("2021-07-10")
+  },
+  {
     "label": "～7/18 平底鍋背飾、酷幣500、金幣10,000",
     "value": "KARTANDPUBG",
     "expire": new Date("2021-07-18")
