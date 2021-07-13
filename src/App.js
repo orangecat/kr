@@ -37,6 +37,11 @@ const coupon_options = [
     "expire": new Date("2021-07-18")
   },
   {
+    "label": "～7/31 極速傳說解碼器10",
+    "value": "DIE89NIWA",
+    "expire": new Date("2021-07-31")
+  },
+  {
     "label": "～7/31 限時車手、裝、車",
     "value": "USANDRIDERSTOGETHER",
     "expire": new Date("2021-07-31")
@@ -155,7 +160,7 @@ function App() {
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
         <br />
-        <span>最後更新時間:2021-06-26 16:49</span>
+        <span>最後更新時間:2021-07-13 18:08</span>
         <br/>
         <div onClick={()=>window.location.reload()}>點我重新整理</div><br/><br/>
       </header>
