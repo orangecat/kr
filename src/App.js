@@ -22,6 +22,11 @@ const coupon_options = [
     "expire": new Date()
   },
   {
+    "label": "我想自己輸入序號啦！哈哈",
+    "value": "manual",
+    "expire": new Date()
+  },
+  {
     "label": "～6/7 酷幣1,000",
     "value": "REWARD001",
     "expire": new Date("2021-06-07")
@@ -57,6 +62,11 @@ const coupon_options = [
     "expire": new Date("2021-08-10")
   },
   {
+    "label": "～8/11？ 黃金風火輪、飛鷹武士藍寶、車輪滾滾炫光(5天)",
+    "value": "SHINYKART",
+    "expire": new Date("2021-08-11")
+  },
+  {
     "label": "～8/31 能量水晶2,000、酷幣500、金幣1,000",
     "value": "SURVEYREWARD",
     "expire": new Date("2021-08-31")
@@ -72,6 +82,7 @@ function App() {
   // const [options, setOptions] = useState([]);
   const [couponNum, setCouponNum] = useState('');
   const [npaCode, setNpaCode] = useStateWithLocalStorage('kartrush-npaCode');
+  const [mcouponNum, setMcouponNum] = useState('');
 
   // useEffect(() => {
   //   fetch(`https://raw.githubusercontent.com/orangecat/kr-coupon/main/data.json`)
@@ -90,7 +101,7 @@ function App() {
         method: 'POST',
         body: JSON.stringify({
           "npaCode": npaCode,
-          "couponNum": couponNum,
+          "couponNum": couponNum === 'manual' ? mcouponNum : couponNum,
           "region": "TW"
         }),
         headers: new Headers({
@@ -105,7 +116,7 @@ function App() {
               method: 'POST',
               body: JSON.stringify({
                 npaCode: npaCode,
-                couponNum: couponNum,
+                couponNum: couponNum === 'manual' ? mcouponNum : couponNum,
                 id: id,
                 name: name,
                 region: "TW"
@@ -134,6 +145,7 @@ function App() {
         })
     }
   }
+  console.log(mcouponNum)
 
   return (
     <div className="App">
@@ -167,10 +179,11 @@ function App() {
           })}
           </optgroup>
         </select>
+        {couponNum === 'manual' && <span>兌換序號：<input value={mcouponNum} onChange={e =>setMcouponNum(e.target.value)}/></span>}
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
         <br />
-        <span>最後更新時間:2021-07-27 19:48</span>
+        <span>最後更新時間:2021-07-28 17:49</span>
         <br/>
         <div onClick={()=>window.location.reload()}>點我重新整理</div><br/><br/>
       </header>
