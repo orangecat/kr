@@ -72,6 +72,11 @@ const coupon_options = [
     "expire": new Date("2021-08-12")
   },
   {
+    "label": "～8/16? 黃金風火輪、飛鷹武士藍寶、車輪滾滾炫光(限時十天）",
+    "value": "WELOVERIDER",
+    "expire": new Date("2021-08-16")
+  },
+  {
     "label": "～8/31 能量水晶2,000、酷幣500、金幣1,000",
     "value": "SURVEYREWARD",
     "expire": new Date("2021-08-31")
@@ -188,7 +193,7 @@ function App() {
         <br />
         <input type="button" value="送出" onClick={handleSubmit} />
         <br />
-        <span>最後更新時間:2021-07-29 18:02</span>
+        <span>最後更新時間:2021-08-02 18:56</span>
         <br/>
         <div onClick={()=>window.location.reload()}>點我重新整理</div><br/><br/>
       </header>
